@@ -20,4 +20,11 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		$(window).load(function(){
+			var winH = $(window).height();
+			$(".headImg").css("top",winH/2);
+			$(".myName").css("top",winH/2+$(".headImg").height()+10);
+		})
+	</script>
 </html>
