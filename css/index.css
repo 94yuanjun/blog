@@ -7,7 +7,7 @@ body{
 	margin:0;
 }
 .block1{
-	background-image:url(../imgs/bg2.jpg);
+	background-image:url(../imgs/bg2.png);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	width: 100%;
@@ -32,4 +32,9 @@ body{
 	position: relative;
 	font-size: 3rem;
 	font-weight: 800;
+}
+.down{
+	width:30px;
+	height:30px;
+	background-image:url(../imgs/arrow.png);
 }
