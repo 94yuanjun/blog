@@ -32,7 +32,8 @@
 	</body>
 	<script>
 		$(window).load(function(){
-			var winH = $(window).height();
+			//var winH = $(window).height(); //浏览器可见高度
+			var winH = document.body.clientHeight;//网页可见高度
 			$(".headImg").css("top",winH/2-80);
 			$(".myName").css("top",winH/2-70);
 		})
