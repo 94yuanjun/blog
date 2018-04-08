@@ -45,7 +45,7 @@ body{
 	height: 62px;
 	background-image:url(../imgs/arrow.png);
 	background-repeat: no-repeat;
-	background-position: 100% 0;
+	/* background-position: 100% 0; */
 	background-position: 0 0;
 	position: absolute;
 	bottom: 44px;
