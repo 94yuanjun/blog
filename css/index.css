@@ -7,5 +7,22 @@ body{
 	margin:0;
 }
 .block1{
-	background-image:url(../imgs/bg1.jpg)
+	background-image:url(../imgs/bg1.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+}
+.headImg{
+	border-radius:100%;
+	width:2rem;
+	height:2rem;
+	overflow:hidden;
+}
+.headImg > img{
+	width: 100%;
+	height: 100%;
+}
+.myName{
+	color:#000;
 }
