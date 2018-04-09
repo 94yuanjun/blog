@@ -23,13 +23,52 @@
 		<div class="blockDiv block2">
 			<div class="down2"></div>
 		</div>
+		<div class="blockDiv block3">
+			<div class="down3"></div>
+		</div>
 	</body>
 	<script>
+		var winH = document.body.clientHeight;//网页可见高度
 		$(window).load(function(){
 			//var winH = $(window).height(); //浏览器可见高度
-			var winH = document.body.clientHeight;//网页可见高度
 			$(".headImg").css("top",winH/2-80);
 			$(".myName").css("top",winH/2-70);
 		})
+		$(".down1,.down2").click(function(){
+			scrollOneDiv($(this));
+		})
+		$(".down3").click(function(){
+			scrollTopDiv($(this));
+		})
+		function scrollOneDiv(div){
+			//console.log(div.offset().top);
+			//console.log(getScrollOffsets());
+			$("body,html").animate({"scrollTop":getScrollOffsets()+winH},1000);
+		}
+		function scrollTopDiv(div){
+			//console.log(div.offset().top);
+			$("body,html").animate({"scrollTop":0},1000);
+		}
+		
+		function getScrollOffsets(w){  
+		  w=w || window;  
+		  //除了IE8以及更早的版本，其它浏览器都能用  
+		  if(w.pageXOffset != null){  
+			//return { x:w.pageXOffset, y:w.pageYOffset }  
+			return w.pageYOffset; 
+		  }  
+			
+		  //对标准模式下的IE或任何浏览器  
+		  var d=w.document;  
+		  if(document.compatMode == "CSS1Compat"){  
+			//return { x:d.documentElement.scrollLeft ,y:d.documentElement.scrollTop }  
+			return d.documentElement.scrollTop;  
+		  }  
+		  
+		  //对怪异模式下的浏览器  
+		  //return { x:d.body.scrollLeft, y:d.body.scrollTop }  
+		  return d.body.scrollTop;  
+			
+		}   
 	</script>
 </html>

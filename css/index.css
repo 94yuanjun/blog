@@ -14,10 +14,13 @@ body{
 	position:relative;
 }
 .block1{
-	background-image:url(../imgs/bg2.png);
+	background-image:url(../imgs/bg1.jpg);
 }
 .block2{
-	background-image:url(../imgs/bg1.png);
+	background-image:url(../imgs/bg2.jpg);
+}
+.block3{
+	background-image:url(../imgs/bg3.jpg);
 }
 .headImg{
 	border-radius:100%;
