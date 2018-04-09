@@ -11,7 +11,7 @@
 		<meta name="format-detection" content="telephone=no">
 	</head>
 	<body>
-		<div class="blockDiv block1">
+		<div class="blockDiv block1" value="1">
 			<div class="headImg">
 				<img src="../imgs/head.png">
 			</div>
@@ -20,10 +20,10 @@
 			</div>
 			<div class="down1"></div>
 		</div>
-		<div class="blockDiv block2">
+		<div class="blockDiv block2" value="2">
 			<div class="down2"></div>
 		</div>
-		<div class="blockDiv block3">
+		<div class="blockDiv block3" value="3">
 			<div class="down3"></div>
 		</div>
 	</body>
@@ -35,21 +35,27 @@
 			$(".myName").css("top",winH/2-70);
 		})
 		$(".down1,.down2").click(function(){
-			scrollOneDiv($(this));
+			scrollOneDiv($(this).parent().attr("value"));
 		})
 		$(".down3").click(function(){
-			scrollTopDiv($(this));
+			scrollTopDiv();
 		})
-		function scrollOneDiv(div){
-			//console.log(div.offset().top);
+		function scrollOneDiv(value){
+			// console.log(div.offset().top);
 			//console.log(getScrollOffsets());
-			$("body,html").animate({"scrollTop":getScrollOffsets()+winH},1000);
+			$("body,html").animate({"scrollTop":(value)*winH},1000);
 		}
-		function scrollTopDiv(div){
+		function scrollTopDiv(){
 			//console.log(div.offset().top);
 			$("body,html").animate({"scrollTop":0},1000);
 		}
 		
+		
+		
+		
+		
+		
+		//移动高度
 		function getScrollOffsets(w){  
 		  w=w || window;  
 		  //除了IE8以及更早的版本，其它浏览器都能用  
