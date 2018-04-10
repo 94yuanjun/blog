@@ -49,11 +49,31 @@
 			//console.log(div.offset().top);
 			$("body,html").animate({"scrollTop":0},1000);
 		}
-		
-		
-		
-		
-		
+		//true为PC端，false为手机端
+		function IsPC() {
+			var userAgentInfo = navigator.userAgent;
+			var Agents = ["Android", "iPhone",
+						"SymbianOS", "Windows Phone",
+						"iPad", "iPod"];
+			var flag = true;
+			for (var v = 0; v < Agents.length; v++) {
+				if (userAgentInfo.indexOf(Agents[v]) > 0) {
+					flag = false;
+					break;
+				}
+			}
+			return flag;
+		}
+		//判断横屏竖屏
+		window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+			if (window.orientation === 180 || window.orientation === 0) { 
+				// alert('竖屏状态！');
+			} 
+			if (window.orientation === 90 || window.orientation === -90 ){ 
+				// alert('横屏状态！');
+				// alert('竖屏观看更舒适');
+			}  
+		}, false);
 		
 		//移动高度
 		function getScrollOffsets(w){  
