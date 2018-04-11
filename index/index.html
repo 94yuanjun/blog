@@ -34,14 +34,13 @@
 			$(".headImg").css("top",winH/2-80);
 			$(".myName").css("top",winH/2-70);
 			
-			alert(navigator.userAgent);
+			// alert(navigator.userAgent);
+			// alert(navigator.userAgent);
 			
-			if(IsPC){
-				$(".blockDiv").css("transform","rotate(0deg)");
-				alert("PC");
+			if(IsPC()){
+				// $(".blockDiv").css("transform","rotate(0deg)");
 			}else{
-				$(".blockDiv").css("transform","rotate(90deg)");
-				alert("手机");
+				// $(".blockDiv").css("transform","rotate(90deg)");
 			}
 		})
 		$(".down1,.down2").click(function(){
@@ -68,7 +67,7 @@
 						"iPad", "iPod","safari"];
 			var flag = true;
 			for (var v = 0; v < Agents.length; v++) {
-				if (userAgentInfo.indexOf(Agents[v]) > 0) {
+				if (userAgentInfo.indexOf(Agents[v]) != -1) {
 					flag = false;
 					break;
 				}
