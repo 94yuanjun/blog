@@ -34,6 +34,8 @@
 			$(".headImg").css("top",winH/2-80);
 			$(".myName").css("top",winH/2-70);
 			
+			alert(navigator.userAgent);
+			
 			if(IsPC){
 				$(".blockDiv").css("transform","rotate(0deg)");
 				alert("PC");
@@ -63,7 +65,7 @@
 			var userAgentInfo = navigator.userAgent;
 			var Agents = ["Android", "iPhone",
 						"SymbianOS", "Windows Phone",
-						"iPad", "iPod"];
+						"iPad", "iPod","safari"];
 			var flag = true;
 			for (var v = 0; v < Agents.length; v++) {
 				if (userAgentInfo.indexOf(Agents[v]) > 0) {
