@@ -33,6 +33,12 @@
 			//var winH = $(window).height(); //浏览器可见高度
 			$(".headImg").css("top",winH/2-80);
 			$(".myName").css("top",winH/2-70);
+			
+			if(IsPC){
+				$(".blockDiv").css("transform","rotate(0deg)");
+			}else{
+				$(".blockDiv").css("transform","rotate(90deg)");
+			}
 		})
 		$(".down1,.down2").click(function(){
 			scrollOneDiv($(this).parent().attr("value"));
@@ -49,10 +55,7 @@
 			//console.log(div.offset().top);
 			$("body,html").animate({"scrollTop":0},1000);
 		}
-		
-		
-		
-		
+
 		//true为PC端，false为手机端
 		function IsPC() {
 			var userAgentInfo = navigator.userAgent;
