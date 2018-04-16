@@ -11,9 +11,9 @@
 		<meta name="format-detection" content="telephone=no">
 	</head>
 	<body>
-		<div class="mask">
+		<div class="progressBar">
 			<img src="../imgs/head.png" />
-			<div>waiting for a moment</div>
+			<div class="progressBarText">waiting for a moment</div>
 		</div>
 		<div class="blockDiv block1" value="1">
 			<div class="headImg">
@@ -53,8 +53,8 @@
 		})
 		//加载完成 加载图片消失
 		function hideMaskImg(){
-			$(".mask").css("display","none");
-			$(".blockDiv").css("display","block");
+			// $(".progressBar").css("display","none");
+			// $(".blockDiv").css("display","block");
 			// alert("111");
 		}
 		//往下的点击事件
