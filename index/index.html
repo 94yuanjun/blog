@@ -11,6 +11,9 @@
 		<meta name="format-detection" content="telephone=no">
 	</head>
 	<body>
+		<div class="mask">
+			<img src="../imgs/head.png" />
+		</div>
 		<div class="blockDiv block1" value="1">
 			<div class="headImg">
 				<img src="../imgs/head.png">
@@ -31,6 +34,7 @@
 		var winH = document.body.clientHeight;//网页可见高度
 		$(window).load(function(){
 			//var winH = $(window).height(); //浏览器可见高度
+			//调整头像名字的位置
 			$(".headImg").css("top",winH/2-80);
 			$(".myName").css("top",winH/2-70);
 			
@@ -42,7 +46,17 @@
 			}else{
 				// $(".blockDiv").css("transform","rotate(90deg)");
 			}
+			
+			// setTimeout(hideMaskImg,5000);
+			hideMaskImg();
 		})
+		//加载完成 加载图片消失
+		function hideMaskImg(){
+			$(".mask").css("display","none");
+			$(".blockDiv").css("display","block");
+			// alert("111");
+		}
+		//往下的点击事件
 		$(".down1,.down2").click(function(){
 			scrollOneDiv($(this).parent().attr("value"));
 		})
@@ -105,6 +119,7 @@
 		  //return { x:d.body.scrollLeft, y:d.body.scrollTop }  
 		  return d.body.scrollTop;  
 			
-		}   
+		} 
+
 	</script>
 </html>
