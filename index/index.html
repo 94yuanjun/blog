@@ -4,6 +4,7 @@
 		<title>yjblog</title>
 		<link rel="stylesheet" href="../css/index.css" type="text/css" />
 		<script src="../js/jquery-2.0.3.min.js"></script>
+		<script src="../js/primitive.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,116 +12,44 @@
 		<meta name="format-detection" content="telephone=no">
 	</head>
 	<body>
-		<div class="progressBar">
-			<div class="waitImg"><img src="../imgs/head.png" /></div>
-			<div class="progressBarText">waiting for a moment</div>
-		</div>
-		<div class="blockDiv block1" value="1">
-			<div class="headImg">
-				<img src="../imgs/head.png">
-			</div>
-			<div class="myName">
-				yjAmazing
-			</div>
-			<!--<div class="down down1"></div>-->
-		</div>
-		<!--<div class="blockDiv block2" value="2">
-			<div class="down down2"></div>
-		</div>
-		<div class="blockDiv block3" value="3">
-			<div class="down down3"></div>
-		</div>-->
-	</body>
+		<img src="../imgs/bg3.jpg"/>
+		<div id="container"></div>
+	</body>	
 	<script>
-		var winH = document.body.clientHeight;//网页可见高度
-		$(window).load(function(){
-			//var winH = $(window).height(); //浏览器可见高度
-			//调整头像名字的位置
-			$(".headImg").css("top",winH/2-80);
-			$(".myName").css("top",winH/2-70);
+		$("img").click(function(){
+			var Canvas = PRIMITIVE.Canvas;    
+			var Optimizer = PRIMITIVE.Optimizer;
+			var cfg = {
+				alpha: 0.5,
+				computeSize: 256,
+				fill: "rgb(0, 0, 0)",
+				height: 375,
+				mutateAlpha: true,
+				shapeTypes: [PRIMITIVE.shapeMap.triangle],
+				mutations: 30,
+				shapes: 200,
+				steps: 100,
+				viewSize: 500,
+				width: 500
+			};
 			
-			// alert(navigator.userAgent);
-			// alert(navigator.userAgent);
+			function go(original, cfg) {
+				let optimizer = new Optimizer(original, cfg);
 			
-			if(IsPC()){
-				// $(".blockDiv").css("transform","rotate(0deg)");
-			}else{
-				// $(".blockDiv").css("transform","rotate(90deg)");
+				let cfg2 = Object.assign({}, cfg, {width:cfg.scale*cfg.width, height:cfg.scale*cfg.height});
+				let result = Canvas.empty(cfg2, false);
+				result.ctx.scale(cfg.scale, cfg.scale);
+				document.getElementById('container').appendChild(result.node);
+
+				optimizer.onStep = (step) => {
+					if (step) {
+						result.drawStep(step);
+					}
+				};
+				optimizer.start();
 			}
 			
-			// setTimeout(hideMaskImg,5000);
-			hideMaskImg();
+			Canvas.original('../imgs/bg1.jpg', cfg).then(original => go(original, cfg));
 		})
-		//加载完成 加载图片消失
-		function hideMaskImg(){
-			$(".progressBar").css("display","none");
-			$(".blockDiv").css("display","block");
-			// alert("111");
-		}
-		//往下的点击事件
-		$(".down1,.down2").click(function(){
-			scrollOneDiv($(this).parent().attr("value"));
-		})
-		$(".down3").click(function(){
-			scrollTopDiv();
-		})
-		function scrollOneDiv(value){
-			// console.log(div.offset().top);
-			//console.log(getScrollOffsets());
-			$("body,html").animate({"scrollTop":(value)*winH},1000);
-		}
-		function scrollTopDiv(){
-			//console.log(div.offset().top);
-			$("body,html").animate({"scrollTop":0},1000);
-		}
-
-		//true为PC端，false为手机端
-		function IsPC() {
-			var userAgentInfo = navigator.userAgent;
-			var Agents = ["Android", "iPhone",
-						"SymbianOS", "Windows Phone",
-						"iPad", "iPod","safari"];
-			var flag = true;
-			for (var v = 0; v < Agents.length; v++) {
-				if (userAgentInfo.indexOf(Agents[v]) != -1) {
-					flag = false;
-					break;
-				}
-			}
-			return flag;
-		}
-		//判断横屏竖屏
-		window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
-			if (window.orientation === 180 || window.orientation === 0) { 
-				// alert('竖屏状态！');
-			} 
-			if (window.orientation === 90 || window.orientation === -90 ){ 
-				// alert('横屏状态！');
-				// alert('竖屏观看更舒适');
-			}  
-		}, false);
-		
-		//移动高度
-		function getScrollOffsets(w){  
-		  w=w || window;  
-		  //除了IE8以及更早的版本，其它浏览器都能用  
-		  if(w.pageXOffset != null){  
-			//return { x:w.pageXOffset, y:w.pageYOffset }  
-			return w.pageYOffset; 
-		  }  
-			
-		  //对标准模式下的IE或任何浏览器  
-		  var d=w.document;  
-		  if(document.compatMode == "CSS1Compat"){  
-			//return { x:d.documentElement.scrollLeft ,y:d.documentElement.scrollTop }  
-			return d.documentElement.scrollTop;  
-		  }  
-		  
-		  //对怪异模式下的浏览器  
-		  //return { x:d.body.scrollLeft, y:d.body.scrollTop }  
-		  return d.body.scrollTop;  
-			
-		} 
-
 	</script>
 </html>
