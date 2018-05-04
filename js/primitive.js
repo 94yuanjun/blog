@@ -210,6 +210,7 @@ class Canvas {
 			let img = new Image();
 			img.src = url;
 			img.onload = e => {
+				//图片真实高度
 				let w = img.naturalWidth;
 				let h = img.naturalHeight;
 
@@ -229,36 +230,6 @@ class Canvas {
 				resolve(canvas);
 			};
 		});
-	}
-
-	static test(cfg) {
-		cfg.width = cfg.computeSize;
-		cfg.height = cfg.computeSize;
-		cfg.scale = 1;
-		let [w, h] = [cfg.width, cfg.height];
-
-		let canvas = new this(w, h);
-		canvas.fill("#fff");
-		let ctx = canvas.ctx;
-
-		ctx.fillStyle = "#f00";
-		ctx.beginPath();
-		ctx.arc(w/4, h/2, w/7, 0, 2*Math.PI, true);
-		ctx.fill();
-
-		ctx.fillStyle = "#0f0";
-		ctx.beginPath();
-		ctx.arc(w/2, h/2, w/7, 0, 2*Math.PI, true);
-		ctx.fill();
-
-		ctx.fillStyle = "#00f";
-		ctx.beginPath();
-		ctx.arc(w*3/4, h/2, w/7, 0, 2*Math.PI, true);
-		ctx.fill();
-
-		if (cfg.fill == "auto") { cfg.fill = getFill(canvas); }
-
-		return canvas;
 	}
 
 	constructor(width, height) {
