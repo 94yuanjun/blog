@@ -1,7 +1,7 @@
 <!HTML DOCTYPE>
 <html>
 	<head>
-		<title>yjblogv19</title>
+		<title>yjblogv20</title>
 		<link rel="stylesheet" href="../css/index.css" type="text/css" />
 		<script src="../js/jquery-2.0.3.min.js"></script>
 		<script src="../js/primitive.js"></script>
@@ -13,8 +13,9 @@
 	</head>
 	<body>
 		<!-- <img src="../imgs/bg3.jpg"/> -->
-		<div class="xixi">你会原谅我的对吧~</div>
+		<div class="xixi">你会原谅我的对吧~点一点我</div>
 		<div id="container"></div>
+		<div class="waitDiv">骚等一会~在拼图。猜猜是谁</div>
 	</body>	
 	<script>
 		var winW = $(window).width();
@@ -22,6 +23,7 @@
 		var myImgH = 1438*winW/1080 ;
 		$(".xixi").click(function(){
 			$(this).css("display","none");
+			$(".waitDiv").css("display","block");
 			var Canvas = PRIMITIVE.Canvas;    
 			var Optimizer = PRIMITIVE.Optimizer;
 			 var cfg = {
