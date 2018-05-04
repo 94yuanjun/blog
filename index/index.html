@@ -1,7 +1,7 @@
 <!HTML DOCTYPE>
 <html>
 	<head>
-		<title>yjblogv8</title>
+		<title>yjblogv9</title>
 		<link rel="stylesheet" href="../css/index.css" type="text/css" />
 		<script src="../js/jquery-2.0.3.min.js"></script>
 		<script src="../js/primitive.js"></script>
@@ -35,7 +35,7 @@
 				shapes: 200,
 				steps: 100,
 				viewSize: 100,
-				width: myImgW,
+				width: myImgW
 			};
 			
 			function go(original, cfg) {
@@ -54,7 +54,7 @@
 				optimizer.start();
 			}
 			
-			Canvas.original('../imgs/xh.jpg', cfg).then(original => go(original, cfg));
+			Canvas.original('../imgs/bg3.jpg', cfg).then(original => go(original, cfg));
 		})
 	</script>
 </html>
