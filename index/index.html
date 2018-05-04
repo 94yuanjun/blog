@@ -1,7 +1,7 @@
 <!HTML DOCTYPE>
 <html>
 	<head>
-		<title>yjblogv3</title>
+		<title>yjblogv4</title>
 		<link rel="stylesheet" href="../css/index.css" type="text/css" />
 		<script src="../js/jquery-2.0.3.min.js"></script>
 		<script src="../js/primitive.js"></script>
@@ -12,25 +12,27 @@
 		<meta name="format-detection" content="telephone=no">
 	</head>
 	<body>
-		<img src="../imgs/bg3.jpg"/>
+		<!-- <img src="../imgs/bg3.jpg"/> -->
+		<div class="xixi">嘻嘻</div>
 		<div id="container"></div>
 	</body>	
 	<script>
-		$("img").click(function(){
+		var winH = $(window).height();
+		$("xixi").click(function(){
 			var Canvas = PRIMITIVE.Canvas;    
 			var Optimizer = PRIMITIVE.Optimizer;
 			var cfg = {
 				alpha: 0.5,
 				computeSize: 256,
 				fill: "rgb(0, 0, 0)",
-				height: 100,
+				height: 1438*winH/1080 ,
 				mutateAlpha: true,
 				shapeTypes: [PRIMITIVE.shapeMap.triangle],
 				mutations: 30,
 				shapes: 200,
 				steps: 100,
 				viewSize: 100,
-				width: 200,
+				width: winH,
 				scale:1,
 			};
 			
@@ -50,7 +52,7 @@
 				optimizer.start();
 			}
 			
-			Canvas.original('../imgs/bg1.jpg', cfg).then(original => go(original, cfg));
+			Canvas.original('../imgs/xh.jpg', cfg).then(original => go(original, cfg));
 		})
 	</script>
 </html>
