@@ -1,7 +1,7 @@
 <!HTML DOCTYPE>
 <html>
 	<head>
-		<title>yjblogv5</title>
+		<title>yjblogv6</title>
 		<link rel="stylesheet" href="../css/index.css" type="text/css" />
 		<script src="../js/jquery-2.0.3.min.js"></script>
 		<script src="../js/primitive.js"></script>
@@ -17,7 +17,7 @@
 		<div id="container"></div>
 	</body>	
 	<script>
-		var winH = $(window).height();
+		var winW = $(window).width();
 		$(".xixi").click(function(){
 			$(this).css("display","none");
 			var Canvas = PRIMITIVE.Canvas;    
@@ -26,14 +26,14 @@
 				alpha: 0.5,
 				computeSize: 256,
 				fill: "rgb(0, 0, 0)",
-				height:winH,
+				height:1438*winW/1080 ,
 				mutateAlpha: true,
 				shapeTypes: [PRIMITIVE.shapeMap.triangle],
 				mutations: 30,
 				shapes: 200,
 				steps: 100,
 				viewSize: 100,
-				width: 1438*winH/1080 ,
+				width: winW,
 				scale:1,
 			};
 			
