@@ -12,53 +12,9 @@
 		<meta name="format-detection" content="telephone=no">
 	</head>
 	<body>
-		<!-- <img src="../imgs/bg3.jpg"/> -->
-		<div class="xixi">你会原谅我的对吧~点一点我</div>
-		<div id="container"></div>
-		<div class="waitDiv">骚等一会~在拼图。猜猜是谁</div>
-		<div class="loveYou">爱你哟❤---你的小局局</div>
+		
 	</body>	
 	<script>
-		var winW = $(window).width();
-		var myImgW = winW;
-		var myImgH = 1438*winW/1080 ;
-		setTimeout("$('.loveYou').css('display','block');",10000);
-		$(".xixi").click(function(){
-			$(this).css("display","none");
-			$(".waitDiv").css("display","block");
-			var Canvas = PRIMITIVE.Canvas;    
-			var Optimizer = PRIMITIVE.Optimizer;
-			 var cfg = {
-				alpha: 0.5,
-				computeSize: winW,
-				fill: "rgb(0, 0, 0)",
-				height: myImgH,
-				mutateAlpha: true,
-				shapeTypes: [PRIMITIVE.shapeMap.triangle],
-				mutations: 30,
-				shapes: 200,
-				steps: 100,
-				viewSize: winW,
-				width: winW
-			};
-			
-			function go(original, cfg) {
-				let optimizer = new Optimizer(original, cfg);
-			
-				let cfg2 = Object.assign({}, cfg, {width:cfg.scale*cfg.width, height:cfg.scale*cfg.height});
-				let result = Canvas.empty(cfg2, false);
-				result.ctx.scale(cfg.scale, cfg.scale);
-				document.getElementById('container').appendChild(result.node);
-
-				optimizer.onStep = (step) => {
-					if (step) {
-						result.drawStep(step);
-					}
-				};
-				optimizer.start();
-			}
-			
-			Canvas.original('../imgs/xh2.jpg', cfg).then(original => go(original, cfg));
-		})
+		
 	</script>
 </html>

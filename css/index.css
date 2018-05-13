@@ -4,18 +4,3 @@ body{
 html{
 	padding:0;
 }
-img{
-	width:100%;
-	display:block;
-}
-.xixi{
-	width:100%;
-	text-align:center;
-}
-.waitDiv{
-	display:none;
-}
-.loveYou{
-	color:red;
-	display:none;
-}
